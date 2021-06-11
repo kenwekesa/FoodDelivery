@@ -130,7 +130,9 @@ public class Signup extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task)
                                         {
                                             if(task.isSuccessful())
-                                            {   FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
+
+                                            {
+                                                FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
                                                 signup_progressbar.setVisibility(View.GONE);
 
                                                 AlertDialog.Builder builder_b = new AlertDialog.Builder(Signup.this);
@@ -160,7 +162,7 @@ public class Signup extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             signup_progressbar.setVisibility(View.GONE);
-                            Toast.makeText(Signup.this, "Authentication failed.",
+                            Toast.makeText(Signup.this, "Authentication failed, perhaps the user is already registered.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
